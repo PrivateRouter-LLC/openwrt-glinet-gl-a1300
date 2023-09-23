@@ -82,6 +82,19 @@ installPackages()
         log_say "\"opkg update\" failed. Retrying in 15 seconds..."
         sleep 15
     done
+
+    #mesh time
+       opkg update
+   #install mesh support
+   opkg remove wpad
+   opkg remove wpad wpad-basic
+   opkg remove wpad-basic-openssl
+   opkg remove wpad-basic-wolfssl
+   opkg remove wpad-wolfssl
+   opkg install wpad-mesh-openssl
+   opkg install kmod-batman-adv
+   opkg install batctl
+   opkg install avahi-autoipd
     
     # List of our packages to install
     local PACKAGE_LIST="base-files busybox ca-bundle cgi-io dnsmasq dropbear firewall fstools fwtool getrandom hostapd-common ip6tables iptables iw iwinfo jshn jsonfilter kernel samba4-server luci-app-samba4 minidlna luci-app-minidlna kmod-ath kmod-ath9k kmod-ath9k-common kmod-cfg80211 kmod-gpio-button-hotplug kmod-ip6tables kmod-ipt-conntrack kmod-ipt-core kmod-ipt-nat kmod-ipt-offload kmod-lib-crc-ccitt kmod-mac80211 kmod-nf-conntrack kmod-nf-conntrack6 kmod-nf-flow kmod-nf-ipt kmod-nf-ipt6 kmod-nf-nat kmod-nf-reject kmod-nf-reject6 kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-slhc kmod-usb-core kmod-usb-ehci libblobmsg-json20210516 libc libgcc1 libip4tc2 libip6tc2 libiwinfo-data libiwinfo-lua libiwinfo20210430 libjson-c5 libjson-script20210516 liblua5.1.5 liblucihttp-lua liblucihttp0 libnl-tiny1 libpthread libubox20210516 libubus-lua libubus20210630 libuci20130104 git git-http jq libuclient20201210 libustream-wolfssl20201210 libxtables12 logd lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base luci-lib-ip luci-lib-jsonc luci-lib-nixio luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system luci-proto-ipv6 luci-proto-ppp luci-ssl luci-theme-bootstrap luci-app-statistics luci-mod-dashboard luci-app-vnstat luci-app-openvpn wireguard-tools luci-app-wireguard openvpn-openssl mtd netifd odhcp6c odhcpd-ipv6only openwrt-keyring opkg ppp ppp-mod-pppoe procd px5g-wolfssl kmod-usb-storage block-mount kmod-fs-ext4 kmod-fs-exfat fdisk luci-compat luci-lib-ipkg curl bash wget kmod-usb-net-rndis luci-app-commands rpcd-mod-luci kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset kmod-usb-net kmod-usb2 kmod-usb-net-ipheth usbmuxd libimobiledevice usbutils luci-app-nlbwmon luci-app-adblock nano ttyd fail2ban speedtest-netperf vsftpd samba36-server luci-app-samba"
